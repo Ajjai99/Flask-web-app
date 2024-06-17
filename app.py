@@ -1,13 +1,15 @@
-# From the flask module, you want to import the Flask class.
+# From the flask module, import the Flask class.
 
-from flask import Flask  # (importing the Flask class)
+from flask import Flask, render_template
 
 # We need to create an app simply as an instance of the Flask class
 app = Flask(__name__)
 
-@app.route("/")
+
+@app.route("/home")
 def home():
-  return "<p>This is Home Page</p>"
+  return render_template('home.html')
+
 
 if __name__ == "__main__":
   app.run(host="0.0.0.0", port=5000, debug=True)
